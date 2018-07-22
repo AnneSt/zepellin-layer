@@ -1,0 +1,23 @@
+# LAYER_CONF_VERSION is increased each time build/conf/bblayers.conf
+# changes incompatibly
+POKY_BBLAYERS_CONF_VERSION = "2"
+
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+
+REPOROOT = "##OEROOT##/.."
+
+BBLAYERS ?= " \
+  ${REPOROOT}/poky-sumo/meta \
+  ${REPOROOT}/poky-sumo/meta-poky \
+  ${REPOROOT}/poky-sumo/meta-openembedded/meta-oe \
+  ${REPOROOT}/poky-sumo/meta-openembedded/meta-networking \
+  ${REPOROOT}/poky-sumo/meta-openembedded/meta-multimedia \
+  ${REPOROOT}/poky-sumo/meta-openembedded/meta-perl \
+  ${REPOROOT}/poky-sumo/meta-openembedded/meta-python \
+  ${REPOROOT}/poky-sumo/meta-qt5 \
+  ${REPOROOT}/poky-sumo/meta-raspberrypi \
+  ${REPOROOT}/poky-sumo/meta-security \
+  ${REPOROOT}/rpi/meta-rpi \
+  ${REPOROOT}/rpi/meta-zepellin \
+"

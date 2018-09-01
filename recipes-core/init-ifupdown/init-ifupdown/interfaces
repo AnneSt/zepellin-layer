@@ -1,6 +1,5 @@
+auto lo
+iface lo inet loopback
+
 auto eth0
-iface eth0 inet static
-	address 152.21.1.100
-	netmask 255.255.255.0
-	network 152.21.1.0
-	gateway 152.21.1.1
+iface eth0 inet dhcp

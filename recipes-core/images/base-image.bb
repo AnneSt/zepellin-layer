@@ -10,23 +10,18 @@ DEPENDS += "bcm2835-bootfiles"
 
 ROS_OS = " \
      roslaunch \
+     rostopic \
+     magic8ball \
 "
 
 CORE_OS = " \
     kernel-modules \
     openssh openssh-keygen \
+    dhcp-client \
     packagegroup-core-boot \
     term-prompt \
+    tzdata \
 "
-
-WIFI_SUPPORT = " \
-    crda \
-    iw \
-    linux-firmware \
-    wireless-tools \
-    wpa-supplicant \
-"
-
 DEV_SDK_INSTALL = " \
     binutils \
     binutils-symlinks \
@@ -50,6 +45,10 @@ DEV_SDK_INSTALL = " \
     make \
     pkgconfig \
     python3-modules \
+"
+
+DEBUG = " \
+    gdbserver \
 "
 
 DEV_EXTRAS = " \
@@ -88,12 +87,17 @@ RPI_STUFF = " \
     userland \
 "
 
+WIFI_SUPPORT = " \
+    crda \
+    iw \
+    linux-firmware \
+    wireless-tools \
+    wpa-supplicant \
+"
+
 IMAGE_INSTALL += " \
     ${CORE_OS} \
-    ${DEV_SDK_INSTALL} \
-    ${DEV_EXTRAS} \
     ${EXTRA_TOOLS_INSTALL} \
-    ${RPI_STUFF} \
     ${WIFI_SUPPORT} \
     ${ROS_OS} \
 "
@@ -111,9 +115,7 @@ ROOTFS_POSTPROCESS_COMMAND += " \
     disable_bootlogd ; \
  "
 
-TOOLCHAIN_HOST_TASK_append = " nativesdk-cmake nativesdk-catkin"
-TOOLCHAIN_TARGET_TASK_append = " rostopic roscpp-dev std-msg-dev"
-
+TOOLCHAIN_HOST_TASK += "nativesdk-cmake nativesdk-catkin"
 
 export IMAGE_BASENAME = "base-image"
 

@@ -17,8 +17,7 @@ BBLAYERS ?= " \
   ${REPOROOT}/poky-sumo/meta-openembedded/meta-python \
   ${REPOROOT}/poky-sumo/meta-ros \
   ${REPOROOT}/poky-sumo/meta-qt5 \
-  ${REPOROOT}/poky-sumo/meta-raspberrypi \
   ${REPOROOT}/poky-sumo/meta-security \
-  ${REPOROOT}/rpi/meta-rpi \
+  ${REPOROOT}/rpi/meta-raspberrypi \
   ${REPOROOT}/rpi/meta-zepellin \
 "

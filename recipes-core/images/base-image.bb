@@ -1,7 +1,6 @@
 SUMMARY = "A console development image with some C/C++ dev tools and ROS"
 LICENSE = "MIT"
 
-IMAGE_FEATURES += "package-management splash"
 IMAGE_LINGUAS = "en-us"
 
 inherit image
@@ -19,9 +18,8 @@ CORE_OS = " \
     openssh openssh-keygen \
     dhcp-client \
     packagegroup-core-boot \
-    term-prompt \
-    tzdata \
 "
+
 DEV_SDK_INSTALL = " \
     binutils \
     binutils-symlinks \
@@ -59,32 +57,13 @@ DEV_EXTRAS = " \
 "
 
 EXTRA_TOOLS_INSTALL = " \
-    bzip2 \
-    devmem2 \
-    dosfstools \
-    ethtool \
-    fbset \
-    findutils \
     i2c-tools \
-    iperf3 \
     iproute2 \
     iptables \
-    less \
-    nano \
     netcat \
     procps \
     sysfsutils \
     tcpdump \
-    unzip \
-    util-linux \
-    wget \
-    zip \
-"
-
-RPI_STUFF = " \
-    omxplayer \
-    raspi2fb \
-    userland \
 "
 
 WIFI_SUPPORT = " \
@@ -98,7 +77,6 @@ WIFI_SUPPORT = " \
 IMAGE_INSTALL += " \
     ${CORE_OS} \
     ${EXTRA_TOOLS_INSTALL} \
-    ${WIFI_SUPPORT} \
     ${ROS_OS} \
 "
 
@@ -106,13 +84,8 @@ set_local_timezone() {
     ln -sf /usr/share/zoneinfo/EST5EDT ${IMAGE_ROOTFS}/etc/localtime
 }
 
-disable_bootlogd() {
-    echo BOOTLOGD_ENABLE=no > ${IMAGE_ROOTFS}/etc/default/bootlogd
-}
-
 ROOTFS_POSTPROCESS_COMMAND += " \
     set_local_timezone ; \
-    disable_bootlogd ; \
  "
 
 TOOLCHAIN_HOST_TASK += "nativesdk-cmake nativesdk-catkin"

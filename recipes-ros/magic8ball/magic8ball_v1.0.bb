@@ -15,15 +15,15 @@ inherit catkin
 
 ROS_SPN = "magic8ball"
 
-do_install() {
+do_install_append() {
 	install -d ${D}${sysconfdir}/init.d
 	install -m 0755 ${WORKDIR}/magic8ball.sh ${D}${sysconfdir}/init.d/magic8ball.sh
 
 	install -d ${D}${sysconfdir}/rc6.d
 	install -d ${D}${sysconfdir}/rc1.d
 	cd ${D}${sysconfdir}/init.d/
-	ln -s magic8ball.sh ../rc6.d/S99magic8ball 
-	ln -s magic8ball.sh ../rc1.d/K01magic8ball 
+	ln -s magic8ball.sh ../rc6.d/S99magic8ball
+	ln -s magic8ball.sh ../rc1.d/K01magic8ball
 }
 
 

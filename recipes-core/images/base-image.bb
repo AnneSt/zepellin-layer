@@ -18,6 +18,7 @@ CORE_OS = " \
     openssh openssh-keygen \
     dhcp-client \
     packagegroup-core-boot \
+    userland \
 "
 
 DEV_SDK_INSTALL = " \

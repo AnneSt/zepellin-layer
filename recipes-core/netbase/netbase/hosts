@@ -1,3 +1,4 @@
+127.0.0.1	localhost
 127.0.0.1	raspberrypi3.localdomain		raspberrypi3
 
 # The following lines are desirable for IPv6 capable hosts

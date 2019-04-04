@@ -41,7 +41,7 @@ KERNEL_MODULE_AUTOLOAD += "i2c-dev"
 
 DISTRO ?= "poky"
 
-PACKAGE_CLASSES ?= "package_deb"
+PACKAGE_CLASSES ?= "package_rpm"
 
 # i686 or x86_64
 SDKMACHINE = "x86_64"

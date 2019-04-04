@@ -50,21 +50,16 @@ DEBUG = " \
     gdbserver \
 "
 
-DEV_EXTRAS = " \
-    ntp \
-    ntp-tickadj \
-    serialecho  \
-    spiloop \
-"
-
 EXTRA_TOOLS_INSTALL = " \
     i2c-tools \
+    spitools \
     iproute2 \
     iptables \
     netcat \
     procps \
     sysfsutils \
     tcpdump \
+    ntp \
 "
 
 WIFI_SUPPORT = " \
